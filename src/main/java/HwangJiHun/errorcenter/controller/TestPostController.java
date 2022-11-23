@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
+
 @RestController
 @RequestMapping("/testpost")
 public class TestPostController {
@@ -17,7 +19,7 @@ public class TestPostController {
 
     @GetMapping("/start")
     public String testStartHandle() {
-        MyException myException = new MyException(1, new IllegalAccessException("IllegalAccessException Test Message").getMessage());
+        MyException myException = new MyException(1, new Timestamp(System.currentTimeMillis()), new IllegalAccessException("IllegalAccessException Test Message").getMessage());
         return testService.callTestPostFeign(myException);
     }
 

@@ -1,6 +1,7 @@
 package HwangJiHun.errorcenter.repository;
 
 import HwangJiHun.errorcenter.model.MyException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 
+@Slf4j
 @Repository
 public class ExceptionRepository {
 
@@ -24,6 +26,7 @@ public class ExceptionRepository {
 
     public MyException save(MyException myException) {
         SqlParameterSource param = new BeanPropertySqlParameterSource(myException);
+        System.out.println("param = " + param);
         jdbcInsert.execute(param);
 
         return myException;

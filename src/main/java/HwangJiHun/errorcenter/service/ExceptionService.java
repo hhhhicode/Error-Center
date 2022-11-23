@@ -16,7 +16,8 @@ public class ExceptionService {
     }
 
     public void saveException(MyException myException) {
+        log.info("MyException = {}", myException);
         MyException savedException = exceptionRepository.save(myException);
-        log.info("Save Exception Completion! = {}", savedException);
+        log.info("Save Exception Completion! = [{}] {}", savedException.getProjectId(), savedException.getDate());
     }
 }
