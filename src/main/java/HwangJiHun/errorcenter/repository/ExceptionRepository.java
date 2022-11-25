@@ -26,7 +26,6 @@ public class ExceptionRepository {
 
     public MyException save(MyException myException) {
         SqlParameterSource param = new BeanPropertySqlParameterSource(myException);
-        System.out.println("param = " + param);
         jdbcInsert.execute(param);
 
         return myException;
