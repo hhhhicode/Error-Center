@@ -11,6 +11,7 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @ToString
 public class MyException {
+    private Long id;
     private int projectId;
     private Timestamp date;
     private String errorMessage;
