@@ -52,6 +52,19 @@ public class ExceptionRepository {
         }
     }
 
+    public Optional<MyException> findByProjectIdLimit1(int projectId) {
+        String sql = "SELECT * FROM exceptions WHERE project_id = :projectId ORDER BY project_id DESC LIMIT 1";
+        SqlParameterSource param = new MapSqlParameterSource()
+                .addValue("projectId", projectId);
+        try {
+            MyException findException = jdbcTemplate.queryForObject(sql, param, myExceptionRowMapper());
+            return Optional.of(findException);
+        } catch (EmptyResultDataAccessException e) {
+            return Optional.empty();
+        }
+
+    }
+
     private static BeanPropertyRowMapper<MyException> myExceptionRowMapper() {
         return new BeanPropertyRowMapper<>(MyException.class);
     }

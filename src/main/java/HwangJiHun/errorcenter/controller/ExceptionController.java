@@ -20,8 +20,8 @@ public class ExceptionController {
 
     @ResponseBody
     @PostMapping(value = "/ex/save", produces = MediaType.APPLICATION_JSON_VALUE)
-    public MyException saveException(@RequestBody MyException myException) throws JsonProcessingException {
-
+    public MyException saveException(@RequestBody MyException myException) {
+        log.info("-> Get Exception Completion! = [{}] {}", myException.getProjectId(), myException.getDate());
         exceptionService.saveException(myException);
 
         return myException;

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/bootstrap.bundle.js"></script>
+</head>
+<body>
+<div id="main">
+    <div id="mainHeader">
+        <nav th:replace="~{common/common_header :: common_header}"></nav>
+    </div>
+    <div id="mainBody" style="padding: 0.35rem; display: flex; flex-direction: row">
+        <div id="sideBar" style="padding: 0.35rem; width: 15vw; height: 100vh">
+            <div th:replace="~{common/common_sidebar :: common_sidebar}"></div>
+        </div>
+        <div id="contents" style="padding: 0.35rem; width: 85vw; height: 100vh;">
+            <div style="padding: 0.35rem">
+                <div th:replace="~{cards/gray_card :: cards_gray_card}"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
